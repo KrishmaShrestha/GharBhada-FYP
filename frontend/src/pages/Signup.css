@@ -1,0 +1,264 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #0f172a;
+}
+
+.signup-fullscreen {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%);
+  padding: 20px;
+}
+
+.signup-container {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  width: 100%;
+  max-width: 1400px;
+  height: 92vh;
+  min-height: 680px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+  background: white;
+}
+
+/* Left Hero - unchanged */
+.signup-hero-side {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
+              url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Right Form */
+.signup-form-side {
+  padding: 50px 70px;
+  background: white;
+  overflow-y: auto;
+}
+
+.signup-card {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.logo-text { font-size: 38px; font-weight: 800; color: #4c1d95; }
+.tagline { font-size: 15px; color: #64748b; display: block; margin-top: 6px; }
+
+.signup-card h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 30px 0 8px;
+  text-align: center;
+  color: #1e293b;
+}
+
+.subtitle {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+/* INPUTS - FIXED OVERLAPPING */
+.input-group,
+.input-row {
+  position: relative;
+  margin-bottom: 32px; /* Increased spacing */
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+/* All inputs including <select> and <input type="date"> */
+.input-group input,
+.input-group select,
+.input-group input[type="date"],
+.input-group input[type="file"] {
+  width: 100%;
+  padding: 16px 0 8px 0;
+  border: none;
+  border-bottom: 2px solid #e2e8f0;
+  background: transparent;
+  font-size: 16px;
+  color: #1e293b;
+}
+
+/* Fix for date input placeholder */
+.input-group input[type="date"] {
+  color: #64748b;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group input[type="date"]:focus {
+  outline: none;
+  border-bottom-color: #7c3aed;
+}
+
+/* Floating Labels - Now works perfectly on ALL fields */
+.input-group label {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 16px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform-origin: left top;
+}
+
+/* Active / Filled state */
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group input:valid ~ label,
+
+.input-group select:focus ~ label,
+.input-group select:not([value=""]) ~ label,
+
+.input-group input[type="date"]:not(:placeholder-shown) ~ label,
+.input-group input[type="date"]:valid ~ label,
+.input-group input[type="date"]:focus ~ label {
+
+  top: -10px;
+  font-size: 13px;
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+/* Special fix for file input */
+.file-group input[type="file"] {
+  padding: 10px 0;
+  border-bottom: none;
+}
+
+/* Password toggle */
+.password-group .toggle-visibility {
+  position: absolute;
+  right: 0;
+  top: 16px;
+  background: none;
+  border: none;
+  color: #64748b;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* File upload styling */
+.file-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.file-hint {
+  font-size: 13px;
+  color: #64748b;
+  margin-top: 6px;
+}
+
+/* Error messages */
+.error {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Terms & Submit */
+.terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  margin: 24px 0;
+  color: #475569;
+}
+
+.terms-checkbox input {
+  margin-top: 3px;
+}
+
+.terms-checkbox a {
+  color: #7c3aed;
+  text-decoration: underline;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 16px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.signup-btn:hover { background: #6d28d9; }
+
+.login-text {
+  text-align: center;
+  margin-top: 28px;
+  color: #64748b;
+  font-size: 15px;
+}
+
+.login-text a {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+/* Security note - visible */
+.secure-note {
+  text-align: center;
+  margin-top: 48px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #f3e8ff 0%, #e0d4ff 100%);
+  border: 1.8px solid #c4b5fd;
+  border-radius: 14px;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #5b21b6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.18);
+}
+
+.secure-note::before {
+  content: "Lock";
+  font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .signup-container { grid-template-columns: 1fr; height: auto; }
+  .signup-hero-side { display: none; }
+  .signup-form-side { padding: 40px 30px; }
+}
+
+@media (max-width: 480px) {
+  .input-row { grid-template-columns: 1fr; }
+  .signup-form-side { padding: 30px 20px; }
+} 
