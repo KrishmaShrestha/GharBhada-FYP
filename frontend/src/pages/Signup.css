@@ -1,9 +1,11 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+
 body {
   font-family: 'Inter', 'Segoe UI', sans-serif;
   background: #0f172a;
 }
+
 
 .signup-fullscreen {
   min-height: 100vh;
@@ -14,6 +16,7 @@ body {
   background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%);
   padding: 20px;
 }
+
 
 .signup-container {
   display: grid;
@@ -28,6 +31,7 @@ body {
   background: white;
 }
 
+
 /* Left Hero - unchanged */
 .signup-hero-side {
   background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
@@ -41,6 +45,7 @@ body {
   padding: 2rem;
 }
 
+
 /* Right Form */
 .signup-form-side {
   padding: 50px 70px;
@@ -48,13 +53,16 @@ body {
   overflow-y: auto;
 }
 
+
 .signup-card {
   max-width: 520px;
   margin: 0 auto;
 }
 
+
 .logo-text { font-size: 38px; font-weight: 800; color: #4c1d95; }
 .tagline { font-size: 15px; color: #64748b; display: block; margin-top: 6px; }
+
 
 .signup-card h1 {
   font-size: 32px;
@@ -64,12 +72,14 @@ body {
   color: #1e293b;
 }
 
+
 .subtitle {
   text-align: center;
   color: #64748b;
   margin-bottom: 40px;
   font-size: 16px;
 }
+
 
 /* INPUTS - FIXED OVERLAPPING */
 .input-group,
@@ -78,11 +88,13 @@ body {
   margin-bottom: 32px; /* Increased spacing */
 }
 
+
 .input-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
+
 
 /* All inputs including <select> and <input type="date"> */
 .input-group input,
@@ -98,10 +110,12 @@ body {
   color: #1e293b;
 }
 
+
 /* Fix for date input placeholder */
 .input-group input[type="date"] {
   color: #64748b;
 }
+
 
 .input-group input:focus,
 .input-group select:focus,
@@ -109,6 +123,7 @@ body {
   outline: none;
   border-bottom-color: #7c3aed;
 }
+
 
 /* Floating Labels - Now works perfectly on ALL fields */
 .input-group label {
@@ -122,17 +137,21 @@ body {
   transform-origin: left top;
 }
 
+
 /* Active / Filled state */
 .input-group input:focus ~ label,
 .input-group input:not(:placeholder-shown) ~ label,
 .input-group input:valid ~ label,
 
+
 .input-group select:focus ~ label,
 .input-group select:not([value=""]) ~ label,
+
 
 .input-group input[type="date"]:not(:placeholder-shown) ~ label,
 .input-group input[type="date"]:valid ~ label,
 .input-group input[type="date"]:focus ~ label {
+
 
   top: -10px;
   font-size: 13px;
@@ -140,11 +159,13 @@ body {
   font-weight: 600;
 }
 
+
 /* Special fix for file input */
 .file-group input[type="file"] {
   padding: 10px 0;
   border-bottom: none;
 }
+
 
 /* Password toggle */
 .password-group .toggle-visibility {
@@ -158,6 +179,7 @@ body {
   cursor: pointer;
 }
 
+
 /* File upload styling */
 .file-label {
   font-size: 15px;
@@ -167,11 +189,13 @@ body {
   display: block;
 }
 
+
 .file-hint {
   font-size: 13px;
   color: #64748b;
   margin-top: 6px;
 }
+
 
 /* Error messages */
 .error {
@@ -180,6 +204,7 @@ body {
   margin-top: 6px;
   display: block;
 }
+
 
 /* Terms & Submit */
 .terms-checkbox {
@@ -191,14 +216,17 @@ body {
   color: #475569;
 }
 
+
 .terms-checkbox input {
   margin-top: 3px;
 }
+
 
 .terms-checkbox a {
   color: #7c3aed;
   text-decoration: underline;
 }
+
 
 .signup-btn {
   width: 100%;
@@ -214,7 +242,9 @@ body {
   transition: 0.3s;
 }
 
+
 .signup-btn:hover { background: #6d28d9; }
+
 
 .login-text {
   text-align: center;
@@ -223,10 +253,12 @@ body {
   font-size: 15px;
 }
 
+
 .login-text a {
   color: #7c3aed;
   font-weight: 600;
 }
+
 
 /* Security note - visible */
 .secure-note {
@@ -246,10 +278,12 @@ body {
   box-shadow: 0 6px 20px rgba(139, 92, 246, 0.18);
 }
 
+
 .secure-note::before {
   content: "Lock";
   font-size: 20px;
 }
+
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -258,7 +292,8 @@ body {
   .signup-form-side { padding: 40px 30px; }
 }
 
+
 @media (max-width: 480px) {
   .input-row { grid-template-columns: 1fr; }
   .signup-form-side { padding: 30px 20px; }
-} 
+}

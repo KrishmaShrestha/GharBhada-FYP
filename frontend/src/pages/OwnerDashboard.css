@@ -1,6 +1,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
 
+
 /* FULL SCREEN DASHBOARD */
 .owner-dashboard {
   display: flex;
@@ -8,6 +9,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   width: 100vw;           /* Full width */
   background: #f8fafc;
 }
+
 
 /* Sidebar - Fixed & Full Height */
 .sidebar {
@@ -23,6 +25,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   z-index: 1000;
 }
 
+
 /* Main Content - Full Width & Height */
 .main-content {
   flex: 1;
@@ -33,12 +36,14 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   width: calc(100vw - 280px);
 }
 
+
 /* Ensure content inside scrolls properly */
 .main-content > * {
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
+
 
 /* Header */
 .dashboard-header {
@@ -49,11 +54,13 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   padding-right: 20px;
 }
 
+
 .page-title {
   font-size: 32px;
   font-weight: 700;
   color: #1e1b4b;
 }
+
 
 .page-subtitle {
   color: #64748b;
@@ -61,11 +68,13 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   font-size: 16px;
 }
 
+
 .header-actions {
   display: flex;
   align-items: center;
   gap: 16px;
 }
+
 
 .notification-btn {
   position: relative;
@@ -76,6 +85,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   cursor: pointer;
 }
 
+
 .notification-btn .badge {
   position: absolute;
   top: -6px; right: -6px;
@@ -84,12 +94,14 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
 }
 
+
 .user-avatar {
   width: 48px; height: 48px;
   background: linear-gradient(135deg, #7c3aed, #6d28d9);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   color: white; font-weight: bold; font-size: 18px;
 }
+
 
 /* Sidebar Header */
 .sidebar-header {
@@ -100,9 +112,11 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   gap: 12px;
 }
 
+
 .logo-icon { color: #a78bfa; }
 .logo-text { font-size: 24px; font-weight: 800; color: #a78bfa; }
 .logo-tagline { font-size: 12px; opacity: 0.8; }
+
 
 /* Navigation */
 .nav-menu { padding: 20px 0; }
@@ -125,6 +139,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
 .nav-icon { width: 20px; height: 20px; }
 .badge { margin-left: auto; background: #ef4444; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: bold; }
 
+
 .logout-btn {
   margin-top: auto;
   padding: 16px 24px;
@@ -140,6 +155,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   cursor: pointer;
 }
 .logout-btn:hover { background: rgba(239, 68, 68, 0.15); }
+
 
 /* Buttons */
 .btn-primary {
@@ -157,6 +173,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   transition: all 0.3s;
 }
 .btn-primary:hover { background: #6d28d9; transform: translateY(-2px); }
+
 
 /* Stats Grid */
 .stats-grid {
@@ -178,6 +195,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
 .stat-card.warning strong { color: #f59e0b; }
 .stat-card.income strong { color: #7c3aed; }
 
+
 /* Properties Grid */
 .properties-grid {
   display: grid;
@@ -192,6 +210,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   transition: all 0.4s;
 }
 .property-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+
 
 /* Modal - Full Screen Centered */
 .modal-overlay {
@@ -215,6 +234,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   padding: 32px;
 }
 
+
 /* Modal Header */
 .modal-header {
   display: flex;
@@ -226,6 +246,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
 .modal-header button { background: none; border: none; color: #64748b; cursor: pointer; transition: color 0.3s; }
 .modal-header button:hover { color: #1e1b4b; }
 
+
 /* Property Form - Beautiful & Clean UI */
 .property-form {
   display: flex;
@@ -233,11 +254,13 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   gap: 24px;
 }
 
+
 /* Floating Labels for Inputs */
 .input-group {
   position: relative;
   margin-bottom: 0;
 }
+
 
 .input-group input,
 .input-group select,
@@ -252,12 +275,14 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   transition: all 0.3s;
 }
 
+
 .input-group input:focus,
 .input-group select:focus,
 .input-group textarea:focus {
   outline: none;
   border-bottom-color: #7c3aed;
 }
+
 
 .input-group label {
   position: absolute;
@@ -269,6 +294,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   transition: all 0.3s ease;
   transform-origin: left top;
 }
+
 
 .input-group input:focus ~ label,
 .input-group input:not(:placeholder-shown) ~ label,
@@ -282,6 +308,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   color: #7c3aed;
   font-weight: 600;
 }
+
 
 /* File Upload - Stylish */
 .file-group input[type="file"] {
@@ -302,6 +329,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
 .file-group input[type="file"]::file-selector-button:hover { background: #6d28d9; }
 .file-hint { font-size: 13px; color: #64748b; margin-top: 6px; }
 
+
 /* Form Rows for 2-Column Layout */
 .input-row {
   display: grid;
@@ -309,8 +337,10 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   gap: 24px;
 }
 
+
 /* Textarea for Rules */
 .input-group textarea { min-height: 120px; resize: vertical; }
+
 
 /* Form Actions */
 .form-actions {
@@ -319,6 +349,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   gap: 16px;
   margin-top: 24px;
 }
+
 
 .btn-secondary {
   background: #f1f5f9;
@@ -331,6 +362,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   transition: all 0.3s;
 }
 .btn-secondary:hover { background: #e2e8f0; }
+
 
 .btn-primary {
   background: #7c3aed;
@@ -347,6 +379,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
   transition: all 0.3s;
 }
 .btn-primary:hover { background: #6d28d9; transform: translateY(-2px); }
+
 
 /* Responsive - Mobile */
 @media (max-width: 992px) {
@@ -367,6 +400,7 @@ body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; }
     grid-template-columns: 1fr;
   }
 }
+
 
 @media (max-width: 640px) {
   .stats-grid,
