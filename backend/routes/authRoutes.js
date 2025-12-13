@@ -1,5 +1,5 @@
 import express from "express";
-import { registerUser, loginUser } from "../controllers/authController.js";
+import { registerUser, loginUser, getAllUsers, updateUserStatus } from "../controllers/authController.js";
 import multer from "multer";
 import fs from "fs";
 import path from "path";
@@ -40,5 +40,9 @@ console.error("Login Error:", err);
 res.status(500).json({ message: "Server error during login", err });
 }
 });
+
+// Admin routes
+router.get("/users", getAllUsers);
+router.put("/users/:userId/status", updateUserStatus);
 
 export default router;

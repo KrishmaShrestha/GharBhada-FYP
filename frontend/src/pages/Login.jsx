@@ -25,18 +25,26 @@ const Login = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoading(false);
-        if (data.token) {
+        
+        if (data.token && data.user) {
           localStorage.setItem("token", data.token);
-          localStorage.setItem("userRole", data.role);
-          localStorage.setItem("userId", data.userId);
-          localStorage.setItem("userName", data.userName);
-          alert("Login Successful!");
-
-          const role = data.role?.toLowerCase();
-          if (role === "tenant") navigate("/tenant/dashboard");
-          else if (role === "owner") navigate("/owner/dashboard");
-          else if (role === "admin") navigate("/admin/dashboard");
-          else navigate("/");
+          localStorage.setItem("user", JSON.stringify(data.user));
+          
+          const role = data.user.role?.toLowerCase();
+          
+          // Show success message first
+          alert(`Welcome ${data.user.fullName}! Login Successful!`);
+          
+          // Navigate based on role
+          if (role === "tenant") {
+            navigate("/tenant/dashboard");
+          } else if (role === "owner") {
+            navigate("/owner/dashboard");
+          } else if (role === "admin") {
+            navigate("/admin/dashboard");
+          } else {
+            navigate("/");
+          }
         } else {
           alert(data.message || "Login failed");
         }

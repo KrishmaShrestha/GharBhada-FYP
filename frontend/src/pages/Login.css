@@ -1,15 +1,14 @@
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
 body {
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: #0f172a;
+  background: #f0fdfa; /* Light teal tint – matches HomePage */
 }
-
 
 /* Full Screen Container */
 .login-fullscreen {
@@ -18,10 +17,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%);
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #5eead4 100%); /* Teal gradient background */
   padding: 20px;
 }
-
 
 .login-container {
   display: grid;
@@ -36,7 +34,6 @@ body {
   background: white;
 }
 
-
 /* Left Side */
 .login-form-side {
   padding: 60px 70px;
@@ -46,20 +43,20 @@ body {
   background: white;
 }
 
-
 .login-card {
   width: 100%;
   max-width: 420px;
 }
 
-
 .logo-text {
   font-size: 38px;
   font-weight: 800;
-  color: #4c1d95;
+  background: linear-gradient(135deg, #0d9488, #14b8a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   letter-spacing: -1px;
 }
-
 
 .tagline {
   font-size: 15px;
@@ -69,15 +66,13 @@ body {
   margin-top: 6px;
 }
 
-
 .login-card h1 {
   font-size: 32px;
   font-weight: 700;
   margin: 30px 0 8px;
   text-align: center;
-  color: #1e293b;
+  color: #111827;
 }
-
 
 .subtitle {
   text-align: center;
@@ -86,13 +81,11 @@ body {
   font-size: 16px;
 }
 
-
 /* Inputs */
 .input-group {
   position: relative;
   margin-bottom: 28px;
 }
-
 
 .input-group input {
   width: 100%;
@@ -103,12 +96,10 @@ body {
   background: transparent;
 }
 
-
 .input-group input:focus {
   outline: none;
-  border-bottom-color: #7c3aed;
+  border-bottom-color: #14b8a6; /* Bright teal focus */
 }
-
 
 .input-group label {
   position: absolute;
@@ -120,15 +111,13 @@ body {
   pointer-events: none;
 }
 
-
 .input-group input:focus ~ label,
 .input-group input:valid ~ label {
   top: -10px;
   font-size: 13px;
-  color: #7c3aed;
+  color: #0d9488; /* Deep teal label when active */
   font-weight: 600;
 }
-
 
 .password-group .toggle-visibility {
   position: absolute;
@@ -141,7 +130,6 @@ body {
   cursor: pointer;
 }
 
-
 /* Options & Button */
 .form-options {
   display: flex;
@@ -151,14 +139,12 @@ body {
   font-size: 14.5px;
 }
 
-
 .checkbox-container {
   display: flex;
   align-items: center;
   cursor: pointer;
   color: #475569;
 }
-
 
 .checkmark {
   width: 20px;
@@ -169,22 +155,20 @@ body {
   position: relative;
 }
 
-
 .checkbox-container input:checked ~ .checkmark {
-  background: #7c3aed;
-  border-color: #7c3aed;
+  background: #0d9488; /* Deep teal when checked */
+  border-color: #0d9488;
 }
 
-
 .checkbox-container input:checked ~ .checkmark::after {
-  content: "Checkmark";
+  content: "✓";
   color: white;
   font-weight: bold;
   position: absolute;
   top: -2px;
   left: 3px;
+  font-size: 16px;
 }
-
 
 .checkbox-container input {
   position: absolute;
@@ -192,18 +176,20 @@ body {
   cursor: pointer;
 }
 
-
 .forgot-password {
-  color: #7c3aed;
+  color: #14b8a6; /* Bright teal link */
   text-decoration: none;
   font-weight: 500;
 }
 
+.forgot-password:hover {
+  text-decoration: underline;
+}
 
 .login-btn {
   width: 100%;
   padding: 16px;
-  background: #7c3aed;
+  background: linear-gradient(135deg, #0d9488, #14b8a6); /* Teal gradient button */
   color: white;
   border: none;
   border-radius: 12px;
@@ -213,11 +199,11 @@ body {
   transition: 0.3s;
 }
 
-
 .login-btn:hover {
-  background: #6d28d9;
+  background: linear-gradient(135deg, #0d7c73, #0ea5a0); /* Slightly darker hover */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
 }
-
 
 .divider {
   text-align: center;
@@ -225,7 +211,6 @@ body {
   position: relative;
   color: #94a3b8;
 }
-
 
 .divider::before {
   content: "";
@@ -236,12 +221,10 @@ body {
   background: #e2e8f0;
 }
 
-
 .divider span {
   background: white;
   padding: 0 20px;
 }
-
 
 .signup-text {
   text-align: center;
@@ -250,38 +233,38 @@ body {
   font-size: 15px;
 }
 
-
 .signup-text a {
-  color: #7c3aed;
+  color: #14b8a6;
   font-weight: 600;
 }
 
+.signup-text a:hover {
+  text-decoration: underline;
+}
 
-/* FIXED: Now 100% VISIBLE & PROFESSIONAL */
+/* Secure Note – Updated to match teal theme */
 .secure-note {
   text-align: center;
   margin-top: 48px !important;
   padding: 16px 24px;
-  background: linear-gradient(135deg, #f3e8ff 0%, #e0d4ff 100%);
-  border: 1.8px solid #c4b5fd;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); /* Very light teal-green */
+  border: 1.8px solid #a7f3d0;
   border-radius: 14px;
   font-size: 15.5px !important;
   font-weight: 600;
-  color: #5b21b6 !important;
+  color: #065f46 !important; /* Deep teal-green text */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.18);
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.18);
   backdrop-filter: blur(4px);
 }
 
-
 .secure-note::before {
-  content: "Lock";
+  content: "🔒";
   font-size: 20px;
 }
-
 
 /* Right Hero Side */
 .login-hero-side {
@@ -296,13 +279,11 @@ body {
   position: relative;
 }
 
-
 .hero-content {
   text-align: center;
   max-width: 520px;
   padding: 2rem;
 }
-
 
 .hero-content h2 {
   font-size: 42px;
@@ -311,14 +292,12 @@ body {
   line-height: 1.2;
 }
 
-
 .hero-content p {
   font-size: 18px;
   opacity: 0.95;
   margin-bottom: 40px;
   line-height: 1.6;
 }
-
 
 .stats {
   display: flex;
@@ -327,19 +306,17 @@ body {
   margin-bottom: 40px;
 }
 
-
 .stat strong {
   font-size: 36px;
   font-weight: 800;
   display: block;
+  color: #ccfbf1; /* Light teal highlight */
 }
-
 
 .stat span {
   font-size: 15px;
   opacity: 0.9;
 }
-
 
 .contact-support {
   background: rgba(255,255,255,0.18);
@@ -349,7 +326,6 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.2);
 }
-
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -362,7 +338,6 @@ body {
   .login-hero-side { display: none; }
   .login-form-side { padding: 50px 40px; }
 }
-
 
 @media (max-width: 480px) {
   .login-form-side { padding: 40px 25px; }

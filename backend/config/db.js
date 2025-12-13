@@ -1,11 +1,20 @@
 import mysql from "mysql2";
 
+// Create connection for callbacks (for existing code)
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "gharbada_db",
+  database: "gharbhada_db",
 });
+
+// Create promise connection for async/await
+const dbPromise = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "gharbhada_db",
+}).promise();
 
 db.connect((err) => {
   if (err) {
@@ -15,4 +24,6 @@ db.connect((err) => {
   }
 });
 
+// Export both versions
 export default db;
+export { dbPromise };

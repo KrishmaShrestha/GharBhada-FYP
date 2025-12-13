@@ -60,13 +60,49 @@ export const loginUser = (req, res) => {
 
     const token = jwt.sign({ id: user.id }, "secretkey");
 
-    // ✅ Send user info along with role
+    // ✅ Send complete user info
     return res.json({
       message: "Login successful",
       token,
-      role: user.role,       // <-- important for redirect
-      userId: user.id,       // optional
-      userName: user.fullName // optional
+      user: {
+        id: user.id,
+        fullName: user.fullName,
+        email: user.email,
+        phone: user.phone,
+        role: user.role,
+        status: user.status
+      }
     });
   });
+};
+
+// Get all users (Admin only)
+export const getAllUsers = async (req, res) => {
+  try {
+    const [users] = await db.execute(
+      "SELECT id, fullName, email, phone, address, role, status, createdAt FROM users ORDER BY createdAt DESC"
+    );
+    res.json(users);
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// Update user status (Admin only)
+export const updateUserStatus = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { status } = req.body;
+
+    await db.execute(
+      "UPDATE users SET status = ?, updatedAt = CURRENT_TIMESTAMP WHERE id = ?",
+      [status, userId]
+    );
+
+    res.json({ message: "User status updated successfully" });
+  } catch (error) {
+    console.error("Error updating user status:", error);
+    res.status(500).json({ message: "Server error" });
+  }
 };

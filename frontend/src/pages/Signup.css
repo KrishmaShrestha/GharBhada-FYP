@@ -1,22 +1,25 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: #0f172a;
+  background: #f0fdfa; /* Cozy light teal tint */
 }
 
-
+/* Full Screen Container */
 .signup-fullscreen {
   min-height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%);
+  background: linear-gradient(135deg, #ccfbf1 0%, #f0fdfa 50%, #ffffff 100%); /* Super soft, cozy teal-white gradient */
   padding: 20px;
 }
-
 
 .signup-container {
   display: grid;
@@ -25,14 +28,13 @@ body {
   max-width: 1400px;
   height: 92vh;
   min-height: 680px;
-  border-radius: 20px;
+  border-radius: 24px; /* Softer corners */
   overflow: hidden;
-  box-shadow: 0 25px 80px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 60px rgba(13, 148, 136, 0.15); /* Gentle teal shadow */
   background: white;
 }
 
-
-/* Left Hero - unchanged */
+/* Left Hero */
 .signup-hero-side {
   background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
               url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80');
@@ -43,135 +45,170 @@ body {
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  border-radius: 24px 0 0 24px;
 }
 
+.hero-content {
+  text-align: center;
+  max-width: 520px;
+}
+
+.hero-content h2 {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.features div {
+  background: rgba(255,255,255,0.15);
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 15.5px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.contact-support {
+  background: rgba(255,255,255,0.18);
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-size: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
 
 /* Right Form */
 .signup-form-side {
-  padding: 50px 70px;
+  padding: 60px 80px; /* More breathing room */
   background: white;
   overflow-y: auto;
+  border-radius: 0 24px 24px 0;
 }
 
-
 .signup-card {
-  max-width: 520px;
+  max-width: 540px;
   margin: 0 auto;
 }
 
-
-.logo-text { font-size: 38px; font-weight: 800; color: #4c1d95; }
-.tagline { font-size: 15px; color: #64748b; display: block; margin-top: 6px; }
-
-
-.signup-card h1 {
-  font-size: 32px;
-  font-weight: 700;
-  margin: 30px 0 8px;
-  text-align: center;
-  color: #1e293b;
+.logo-text {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #0d9488, #14b8a6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
 }
 
+.tagline {
+  font-size: 16px;
+  color: #64748b;
+  font-weight: 500;
+  display: block;
+  margin-top: 8px;
+}
+
+.signup-card h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin: 32px 0 10px;
+  text-align: center;
+  color: #111827;
+}
 
 .subtitle {
   text-align: center;
   color: #64748b;
-  margin-bottom: 40px;
-  font-size: 16px;
+  margin-bottom: 48px;
+  font-size: 17px;
 }
 
-
-/* INPUTS - FIXED OVERLAPPING */
+/* INPUTS – Cozier spacing & focus */
 .input-group,
 .input-row {
   position: relative;
-  margin-bottom: 32px; /* Increased spacing */
+  margin-bottom: 36px; /* More cozy space */
 }
-
 
 .input-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 28px;
 }
 
-
-/* All inputs including <select> and <input type="date"> */
 .input-group input,
 .input-group select,
 .input-group input[type="date"],
 .input-group input[type="file"] {
   width: 100%;
-  padding: 16px 0 8px 0;
+  padding: 18px 0 10px 0;
   border: none;
   border-bottom: 2px solid #e2e8f0;
   background: transparent;
-  font-size: 16px;
-  color: #1e293b;
+  font-size: 16.5px;
+  color: #111827;
+  border-radius: 8px 8px 0 0;
 }
-
-
-/* Fix for date input placeholder */
-.input-group input[type="date"] {
-  color: #64748b;
-}
-
 
 .input-group input:focus,
 .input-group select:focus,
 .input-group input[type="date"]:focus {
   outline: none;
-  border-bottom-color: #7c3aed;
+  border-bottom-color: #14b8a6;
+  box-shadow: 0 4px 12px rgba(20, 184, 166, 0.1); /* Soft glow */
 }
 
-
-/* Floating Labels - Now works perfectly on ALL fields */
+/* Floating Labels */
 .input-group label {
   position: absolute;
-  top: 16px;
+  top: 18px;
   left: 0;
-  font-size: 16px;
+  font-size: 16.5px;
   color: #94a3b8;
   pointer-events: none;
   transition: all 0.3s ease;
-  transform-origin: left top;
 }
 
-
-/* Active / Filled state */
 .input-group input:focus ~ label,
 .input-group input:not(:placeholder-shown) ~ label,
 .input-group input:valid ~ label,
-
-
 .input-group select:focus ~ label,
 .input-group select:not([value=""]) ~ label,
-
-
-.input-group input[type="date"]:not(:placeholder-shown) ~ label,
-.input-group input[type="date"]:valid ~ label,
-.input-group input[type="date"]:focus ~ label {
-
-
-  top: -10px;
-  font-size: 13px;
-  color: #7c3aed;
+.input-group input[type="date"]:focus ~ label,
+.input-group input[type="date"]:not(:placeholder-shown) ~ label {
+  top: -12px;
+  font-size: 13.5px;
+  color: #0d9488;
   font-weight: 600;
+  background: white;
+  padding: 0 6px;
 }
 
-
-/* Special fix for file input */
+/* File & Password */
 .file-group input[type="file"] {
-  padding: 10px 0;
-  border-bottom: none;
+  padding: 12px 0;
 }
 
-
-/* Password toggle */
 .password-group .toggle-visibility {
   position: absolute;
   right: 0;
-  top: 16px;
+  top: 18px;
   background: none;
   border: none;
   color: #64748b;
@@ -179,121 +216,97 @@ body {
   cursor: pointer;
 }
 
-
-/* File upload styling */
-.file-label {
-  font-size: 15px;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 8px;
-  display: block;
-}
-
-
-.file-hint {
-  font-size: 13px;
-  color: #64748b;
-  margin-top: 6px;
-}
-
-
-/* Error messages */
+/* Error */
 .error {
   color: #ef4444;
-  font-size: 13px;
-  margin-top: 6px;
+  font-size: 13.5px;
+  margin-top: 8px;
   display: block;
 }
 
-
-/* Terms & Submit */
+/* Terms & Button */
 .terms-checkbox {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  font-size: 14.5px;
-  margin: 24px 0;
+  gap: 12px;
+  font-size: 15px;
+  margin: 32px 0;
   color: #475569;
 }
 
-
-.terms-checkbox input {
-  margin-top: 3px;
-}
-
-
 .terms-checkbox a {
-  color: #7c3aed;
+  color: #14b8a6;
   text-decoration: underline;
 }
 
-
 .signup-btn {
   width: 100%;
-  padding: 16px;
-  background: #7c3aed;
+  padding: 18px;
+  background: linear-gradient(135deg, #0d9488, #14b8a6);
   color: white;
   border: none;
-  border-radius: 12px;
-  font-size: 17px;
+  border-radius: 16px;
+  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 10px;
-  transition: 0.3s;
+  margin-top: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(13, 148, 136, 0.25);
 }
 
-
-.signup-btn:hover { background: #6d28d9; }
-
+.signup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(13, 148, 136, 0.35);
+}
 
 .login-text {
   text-align: center;
-  margin-top: 28px;
+  margin-top: 32px;
   color: #64748b;
-  font-size: 15px;
+  font-size: 16px;
 }
-
 
 .login-text a {
-  color: #7c3aed;
+  color: #14b8a6;
   font-weight: 600;
 }
 
-
-/* Security note - visible */
+/* Secure Note – Cozier teal version */
 .secure-note {
   text-align: center;
-  margin-top: 48px;
-  padding: 16px 24px;
-  background: linear-gradient(135deg, #f3e8ff 0%, #e0d4ff 100%);
-  border: 1.8px solid #c4b5fd;
-  border-radius: 14px;
-  font-size: 15.5px;
+  margin-top: 56px;
+  padding: 20px 28px;
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+  border: 2px solid #a7f3d0;
+  border-radius: 20px;
+  font-size: 16px;
   font-weight: 600;
-  color: #5b21b6;
+  color: #065f46;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.18);
+  gap: 14px;
+  box-shadow: 0 8px 25px rgba(13, 148, 136, 0.2);
 }
-
 
 .secure-note::before {
-  content: "Lock";
-  font-size: 20px;
+  content: "🔒";
+  font-size: 24px;
 }
-
 
 /* Responsive */
 @media (max-width: 992px) {
-  .signup-container { grid-template-columns: 1fr; height: auto; }
+  .signup-container { 
+    grid-template-columns: 1fr; 
+    height: auto; 
+    border-radius: 20px;
+  }
   .signup-hero-side { display: none; }
-  .signup-form-side { padding: 40px 30px; }
+  .signup-form-side { padding: 50px 40px; border-radius: 20px; }
 }
-
 
 @media (max-width: 480px) {
   .input-row { grid-template-columns: 1fr; }
-  .signup-form-side { padding: 30px 20px; }
+  .signup-form-side { padding: 40px 25px; }
+  .signup-card h1 { font-size: 30px; }
 }

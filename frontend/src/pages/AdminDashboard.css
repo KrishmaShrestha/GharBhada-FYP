@@ -1,0 +1,402 @@
+/* AdminDashboard.css */
+.admin-dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0fdfa;
+  min-height: 100vh;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-left h1 {
+  color: #111827;
+  margin: 0 0 5px 0;
+  font-size: 2rem;
+}
+
+.header-left p {
+  color: #6b7280;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.logout-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* Tabs */
+.admin-tabs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 30px;
+  background: white;
+  padding: 5px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  background: #f0fdfa;
+  color: #0d9488;
+}
+
+.tab.active {
+  background: #0d9488;
+  color: white;
+}
+
+/* Content */
+.admin-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Overview Section */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #0d9488, #14b8a6);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+}
+
+.stat-card h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stat-details {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.stat-details span.active {
+  color: #dcfce7;
+}
+
+.stat-details span.pending {
+  color: #fef3c7;
+}
+
+/* Recent Activities */
+.recent-activities h3 {
+  color: #111827;
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+}
+
+.activity-list {
+  space-y: 15px;
+}
+
+.activity-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border-left: 4px solid #0d9488;
+  margin-bottom: 15px;
+}
+
+.activity-info p {
+  margin: 0 0 5px 0;
+  color: #111827;
+}
+
+.activity-time {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Table Styles */
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.admin-table th {
+  background: #f9fafb;
+  color: #111827;
+  font-weight: 600;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.admin-table td {
+  padding: 15px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #374151;
+}
+
+.admin-table tr:hover {
+  background: #f9fafb;
+}
+
+/* Status Badges */
+.status,
+.role {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status.active,
+.status.completed {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status.suspended,
+.status.rejected,
+.status.failed {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.status.inactive {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+.status.pending-owner-approval {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.status.approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.lease-terms-submitted {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+.status.lease-terms-approved {
+  background: #f0f9ff;
+  color: #0369a1;
+}
+
+.status.agreement-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status.agreement-approved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status.payment-completed {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.role.admin {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.role.owner {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.role.tenant {
+  background: #dcfce7;
+  color: #166534;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-approve,
+.btn-reject,
+.btn-suspend,
+.btn-activate {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-approve {
+  background: #22c55e;
+  color: white;
+}
+
+.btn-approve:hover {
+  background: #16a34a;
+}
+
+.btn-reject {
+  background: #ef4444;
+  color: white;
+}
+
+.btn-reject:hover {
+  background: #dc2626;
+}
+
+.btn-suspend {
+  background: #f59e0b;
+  color: white;
+}
+
+.btn-suspend:hover {
+  background: #d97706;
+}
+
+.btn-activate {
+  background: #0d9488;
+  color: white;
+}
+
+.btn-activate:hover {
+  background: #0f766e;
+}
+
+/* Loading State */
+.admin-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f4f6;
+  border-top: 4px solid #0d9488;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 15px;
+  }
+  
+  .admin-header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .admin-tabs {
+    flex-direction: column;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .activity-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .admin-table {
+    font-size: 0.9rem;
+  }
+  
+  .admin-table th,
+  .admin-table td {
+    padding: 10px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+  }
+}
