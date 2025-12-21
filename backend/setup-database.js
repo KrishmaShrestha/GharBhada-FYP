@@ -11,22 +11,22 @@ const setupDatabase = () => {
   console.log("Setting up database...");
   
   // Create database
-  connection.query("CREATE DATABASE IF NOT EXISTS gharbhada_db", (err) => {
+  connection.query("CREATE DATABASE IF NOT EXISTS gharbada_db", (err) => {
     if (err) {
       console.error("❌ Error creating database:", err);
       process.exit(1);
     }
     
-    console.log("✅ Database 'gharbhada_db' created/verified");
+    console.log("✅ Database 'gharbada_db' created/verified");
     
     // Switch to the database
-    connection.query("USE gharbhada_db", (err) => {
+    connection.query("USE gharbada_db", (err) => {
       if (err) {
         console.error("❌ Error selecting database:", err);
         process.exit(1);
       }
       
-      console.log("✅ Using database 'gharbhada_db'");
+      console.log("✅ Using database 'gharbada_db'");
       
       // Create users table
       const createUsersTable = `

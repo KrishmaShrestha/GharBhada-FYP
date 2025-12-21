@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css';
+import { showSuccess, showError } from '../utils/toastr';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -62,11 +63,11 @@ const AdminDashboard = () => {
         setUsers(users.map(user => 
           user.id === userId ? { ...user, status } : user
         ));
-        alert(`User ${status.toLowerCase()} successfully`);
+        showSuccess(`User ${status.toLowerCase()} successfully`, 'User Updated');
       }
     } catch (error) {
       console.error('Error updating user status:', error);
-      alert('Failed to update user status');
+      showError('Failed to update user status', 'Update Error');
     }
   };
 
@@ -84,11 +85,11 @@ const AdminDashboard = () => {
         setProperties(properties.map(property => 
           property.id === propertyId ? { ...property, status } : property
         ));
-        alert(`Property ${status.toLowerCase()} successfully`);
+        showSuccess(`Property ${status.toLowerCase()} successfully`, 'Property Updated');
       }
     } catch (error) {
       console.error('Error updating property status:', error);
-      alert('Failed to update property status');
+      showError('Failed to update property status', 'Update Error');
     }
   };
 

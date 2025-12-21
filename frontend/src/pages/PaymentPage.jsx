@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './PaymentPage.css';
+import { showSuccess, showError } from '../utils/toastr';
 
 const PaymentPage = () => {
   const { bookingId } = useParams();
@@ -138,7 +139,7 @@ const PaymentPage = () => {
 
       if (response.ok) {
         const result = await response.json();
-        alert(`Payment successful! Transaction ID: ${transactionId}`);
+        showSuccess(`Payment successful! Transaction ID: ${transactionId}`, 'Payment Complete');
         
         if (paymentType === 'security-deposit') {
           navigate('/tenant/dashboard');
@@ -147,11 +148,11 @@ const PaymentPage = () => {
         }
       } else {
         const error = await response.json();
-        alert(error.message || 'Payment failed');
+        showError(error.message || 'Payment failed', 'Payment Error');
       }
     } catch (error) {
       console.error('Error processing payment:', error);
-      alert('Payment failed. Please try again.');
+      showError('Payment failed. Please try again.', 'Payment Error');
     } finally {
       setProcessing(false);
     }

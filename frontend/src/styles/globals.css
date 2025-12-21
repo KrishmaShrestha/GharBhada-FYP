@@ -823,3 +823,53 @@ p {
 .perfect-scrollbar::-webkit-scrollbar-thumb:hover {
   background: var(--gray-400);
 }
+/* Toastr Custom Styling */
+.toast-top-right {
+  top: 80px !important;
+  right: 20px !important;
+}
+
+.toast {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.toast-success {
+  background-color: var(--success-500) !important;
+}
+
+.toast-error {
+  background-color: var(--error-500) !important;
+}
+
+.toast-warning {
+  background-color: var(--warning-500) !important;
+}
+
+.toast-info {
+  background-color: var(--primary-500) !important;
+}
+
+.toast-title {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+.toast-message {
+  font-size: 13px !important;
+  opacity: 0.95 !important;
+}
+
+.toast-progress {
+  background-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.toast-close-button {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 16px !important;
+}
+
+.toast-close-button:hover {
+  color: white !important;
+}

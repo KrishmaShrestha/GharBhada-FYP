@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './BookingForm.css';
+import { showSuccess, showError, showWarning } from '../utils/toastr';
 
 const BookingForm = () => {
   const { propertyId } = useParams();
@@ -64,7 +65,7 @@ const BookingForm = () => {
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (!user) {
-        alert('Please login first');
+        showWarning('Please login first', 'Authentication Required');
         navigate('/login');
         return;
       }
@@ -87,15 +88,15 @@ const BookingForm = () => {
       });
 
       if (response.ok) {
-        alert('Booking request submitted successfully! The owner will review your request.');
+        showSuccess('Booking request submitted successfully! The owner will review your request.', 'Booking Submitted');
         navigate('/tenant/dashboard');
       } else {
         const error = await response.json();
-        alert(error.message || 'Failed to submit booking request');
+        showError(error.message || 'Failed to submit booking request', 'Booking Error');
       }
     } catch (error) {
       console.error('Error submitting booking:', error);
-      alert('Failed to submit booking request');
+      showError('Failed to submit booking request', 'Network Error');
     } finally {
       setSubmitting(false);
     }

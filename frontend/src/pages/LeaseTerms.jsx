@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './LeaseTerms.css';
+import { showSuccess, showError } from '../utils/toastr';
 
 const LeaseTerms = () => {
   const { bookingId } = useParams();
@@ -108,15 +109,15 @@ const LeaseTerms = () => {
       });
 
       if (response.ok) {
-        alert('Lease terms submitted successfully! Waiting for owner approval.');
+        showSuccess('Lease terms submitted successfully! Waiting for owner approval.', 'Lease Terms Submitted');
         navigate('/tenant/dashboard');
       } else {
         const error = await response.json();
-        alert(error.message || 'Failed to submit lease terms');
+        showError(error.message || 'Failed to submit lease terms', 'Submission Error');
       }
     } catch (error) {
       console.error('Error submitting lease terms:', error);
-      alert('Failed to submit lease terms');
+      showError('Failed to submit lease terms', 'Network Error');
     } finally {
       setSubmitting(false);
     }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './Agreement.css';
+import { showSuccess, showError, showInfo } from '../utils/toastr';
 
 const Agreement = () => {
   const { bookingId } = useParams();
@@ -37,15 +38,15 @@ const Agreement = () => {
       });
 
       if (response.ok) {
-        alert('Agreement approved! Please proceed to payment.');
+        showSuccess('Agreement approved! Please proceed to payment.', 'Agreement Approved');
         navigate(`/payment/${bookingId}`);
       } else {
         const error = await response.json();
-        alert(error.message || 'Failed to approve agreement');
+        showError(error.message || 'Failed to approve agreement', 'Agreement Error');
       }
     } catch (error) {
       console.error('Error approving agreement:', error);
-      alert('Failed to approve agreement');
+      showError('Failed to approve agreement', 'Network Error');
     } finally {
       setSubmitting(false);
     }
@@ -66,15 +67,15 @@ const Agreement = () => {
       });
 
       if (response.ok) {
-        alert('Agreement declined. You will be redirected to your dashboard.');
+        showInfo('Agreement declined. You will be redirected to your dashboard.', 'Agreement Declined');
         navigate('/tenant/dashboard');
       } else {
         const error = await response.json();
-        alert(error.message || 'Failed to decline agreement');
+        showError(error.message || 'Failed to decline agreement', 'Agreement Error');
       }
     } catch (error) {
       console.error('Error declining agreement:', error);
-      alert('Failed to decline agreement');
+      showError('Failed to decline agreement', 'Network Error');
     } finally {
       setSubmitting(false);
     }

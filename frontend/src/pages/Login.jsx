@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
+import { showSuccess, showError } from "../utils/toastr";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,46 +14,48 @@ const Login = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formData, rememberMe }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setLoading(false);
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, rememberMe }),
+      });
+
+      const data = await response.json();
+      setLoading(false);
+      
+      if (response.ok && data.token && data.user) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
         
-        if (data.token && data.user) {
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("user", JSON.stringify(data.user));
-          
-          const role = data.user.role?.toLowerCase();
-          
-          // Show success message first
-          alert(`Welcome ${data.user.fullName}! Login Successful!`);
-          
-          // Navigate based on role
-          if (role === "tenant") {
+        const role = data.user.role;
+        
+        // Show success message first
+        showSuccess(`Welcome ${data.user.fullName}! Login Successful!`, 'Login Success');
+        
+        // Navigate based on role with a small delay to show the toast
+        setTimeout(() => {
+          if (role === "Tenant") {
             navigate("/tenant/dashboard");
-          } else if (role === "owner") {
+          } else if (role === "Owner") {
             navigate("/owner/dashboard");
-          } else if (role === "admin") {
+          } else if (role === "Admin") {
             navigate("/admin/dashboard");
           } else {
             navigate("/");
           }
-        } else {
-          alert(data.message || "Login failed");
-        }
-      })
-      .catch(() => {
-        setLoading(false);
-        alert("Server error");
-      });
+        }, 1000);
+      } else {
+        showError(data.message || "Login failed", 'Login Failed');
+      }
+    } catch (error) {
+      setLoading(false);
+      showError("Server error. Please check your connection and try again.", 'Connection Error');
+    }
   };
 
   return (

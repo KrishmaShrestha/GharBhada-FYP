@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Signup.css";
 import { useNavigate, useLocation } from "react-router-dom";
+import { showSuccess, showError } from "../utils/toastr";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -52,31 +53,38 @@ const Signup = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
     setLoading(true);
-    const form = new FormData();
-    for (let key in formData) {
-      form.append(key, formData[key]);
-    }
-
-    fetch("http://localhost:5000/api/auth/signup", { method: "POST", body: form })
-      .then(res => res.json())
-      .then(data => {
-        setLoading(false);
-        if (data.message === "Signup successful" || data.success) {
-          alert("Account created! Please wait for admin approval.");
-          navigate("/login");
-        } else {
-          alert(data.message || "Signup failed");
+    
+    try {
+      const form = new FormData();
+      for (let key in formData) {
+        if (formData[key] !== null && formData[key] !== '') {
+          form.append(key, formData[key]);
         }
-      })
-      .catch(() => {
-        setLoading(false);
-        alert("Server error. Try again later.");
+      }
+      
+      const response = await fetch("http://localhost:5000/api/auth/signup", { 
+        method: "POST", 
+        body: form 
       });
+
+      const data = await response.json();
+      setLoading(false);
+      
+      if (response.ok && (data.message === "User registered successfully" || data.success)) {
+        showSuccess("Account created! Please wait for admin approval.", "Signup Successful");
+        setTimeout(() => navigate("/login"), 2000);
+      } else {
+        showError(data.message || "Signup failed", "Signup Error");
+      }
+    } catch (error) {
+      setLoading(false);
+      showError("Server error. Please check your connection and try again.", "Connection Error");
+    }
   };
 
   return (
