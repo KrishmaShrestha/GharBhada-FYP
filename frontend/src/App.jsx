@@ -4,6 +4,7 @@ import "./styles/globals.css";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ForgotPassword from "./pages/ForgotPassword";
 import TenantDashboard from "./pages/TenantDashboard";
 import OwnerDashboard from "./pages/OwnerDashboard";
 import PropertyDetails from "./pages/PropertyDetails";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/tenant/dashboard" element={<TenantDashboard />} />
         <Route path="/owner/dashboard" element={<OwnerDashboard />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />

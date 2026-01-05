@@ -5,7 +5,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "gharbada_db",
+  database: "gharbhada_db",
 });
 
 // Create promise connection for async/await
@@ -13,7 +13,7 @@ const dbPromise = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "gharbada_db",
+  database: "gharbhada_db",
 }).promise();
 
 db.connect((err) => {
