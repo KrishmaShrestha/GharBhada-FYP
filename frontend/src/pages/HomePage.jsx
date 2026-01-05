@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
+import GharBhadaLogo from "../components/GharBhadaLogo";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ export default function HomePage() {
       <nav className="navbar">
         <div className="nav-container">
           <div className="logo" onClick={() => navigate("/")}>
-            <span className="logo-icon">🏠</span>
+            <GharBhadaLogo size={42} showText={false} className="homepage-logo" />
             <span className="logo-text">GharBhada</span>
           </div>
 
